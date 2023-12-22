@@ -42,15 +42,17 @@
 
 <script>
 import { mapActions, mapState, useStore } from "vuex";
+import mixinOtheruserDetails from "../mixins/mixin-other-user-details.js";
 
 export default {
+  mixins: [mixinOtheruserDetails],
   computed: {
     ...mapState("app_store", ["userDetails"]),
     title() {
       console.log(this.$route);
       let currentPath = this.$route.fullPath;
       // if (currentPath == "/") return "Smackchat";
-      if (currentPath == "/chat") return "Chat";
+      if (currentPath.includes("/chat")) return this.otherUserDetails?.name;
       else if (currentPath == "/auth") return "Login";
       return "Smackchat";
     },

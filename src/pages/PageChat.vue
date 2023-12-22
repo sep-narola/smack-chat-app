@@ -1,11 +1,15 @@
 <template>
   <q-page class="flex column">
-    <q-banner class="bg-grey-4 text-center"> User is offline </q-banner>
+    <q-banner class="bg-grey-4 text-center" v-if="!otherUserDetails?.online">
+      {{ otherUserDetails?.name }} is offline
+    </q-banner>
     <div class="q-pa-md column col justify-end">
       <q-chat-message
         v-for="(message, index) in messages"
         :key="index"
-        :name="message.from == 'me' ? userDetails.name : 'them'"
+        :name="
+          message.from == 'me' ? userDetails?.name : otherUserDetails?.name
+        "
         :text="[message.text]"
         :sent="message.from == 'me'"
       />
@@ -44,8 +48,10 @@
 import { defineComponent, reactive } from "vue";
 import { useRoute } from "vue-router";
 import { mapState, mapActions } from "vuex";
+import mixinOtheruserDetails from "../mixins/mixin-other-user-details.js";
 
 export default defineComponent({
+  mixins: [mixinOtheruserDetails],
   setup() {
     const route = useRoute();
     const chat = reactive({
@@ -95,6 +101,9 @@ export default defineComponent({
   },
   computed: {
     ...mapState("app_store", ["messages", "userDetails"]),
+    // otherUserDetails() {
+    //   return this.$store.state.app_store.users[this.route.params.otherUserId];
+    // },
   },
   mounted() {
     this.firebaseGetMessages(this.route.params.otherUserId);
