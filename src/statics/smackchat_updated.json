@@ -1,0 +1,19 @@
+{
+  "users": {
+    "56e3a8f16FX5qQodWA2YdJROyGp1": {
+      "email": "Lucy@yopmail.com",
+      "name": "Lucy",
+      "online": true
+    },
+    "GSZshF4OZld1Fj219HlAoQq3btC2": {
+      "email": "danny@yopmail.com",
+      "name": "Danny",
+      "online": false
+    },
+    "W3qqdxkWTAN2IzR1bilUgRxav532": {
+      "email": "Jim@yopmail.com",
+      "name": "Jim",
+      "online": true
+    }
+  }
+}

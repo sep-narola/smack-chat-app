@@ -14,6 +14,7 @@ import {
   onChildAdded,
   onChildChanged,
   update,
+  push,
 } from "firebase/database";
 
 let messagesRef;
@@ -109,8 +110,8 @@ const actions = {
           async (snapshot) => {
             let userDetails = await snapshot.val();
             commit("setUserDetails", {
-              name: userDetails.name,
-              email: userDetails.email,
+              name: await userDetails.name,
+              email: await userDetails.email,
               userId: userId,
             });
           },
@@ -184,6 +185,26 @@ const actions = {
     // const unsubscribe = onChildAdded(messagesRef, (snapshot) => {});
     // unsubscribe();
     commit("clearMessages");
+  },
+
+  firebaseSendMessage({}, payload) {
+    console.log("payload => ", payload);
+    push(
+      ref(
+        firebaseDB,
+        "chats/" + state.userDetails.userId + "/" + payload.otherUserId
+      ),
+      payload.message
+    );
+
+    payload.message.from = "them";
+    push(
+      ref(
+        firebaseDB,
+        "chats/" + payload.otherUserId + "/" + state.userDetails.userId
+      ),
+      payload.message
+    );
   },
 };
 
