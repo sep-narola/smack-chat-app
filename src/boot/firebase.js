@@ -16,6 +16,13 @@ const firebaseConfig = {
   appId: "1:950764834326:web:590782fc269c7e75bd2f37",
   databaseURL:
     "https://smackchat-b56bb-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+  // apiKey: "AIzaSyA5RQJby75ZiQRSZgiZWug8U_2CgGC9kH0",
+  // authDomain: "smackchat-7611d.firebaseapp.com",
+  // projectId: "smackchat-7611d",
+  // storageBucket: "smackchat-7611d.appspot.com",
+  // messagingSenderId: "382919602397",
+  // appId: "1:382919602397:web:a42cc1733cbc9bd66e6b34",
 };
 
 // Initialize Firebase

@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex q-pa-md">
-    <q-card class="full-width">
+  <q-page class="auth-page flex q-pa-md">
+    <q-card class="auth-card">
       <q-tabs
         v-model="tab"
         dense
@@ -44,3 +44,64 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+.auth-page {
+  justify-content: center;
+  // background: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+  .auth-card {
+    width: 50%;
+  }
+}
+
+/* Media Queries */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .auth-card {
+    width: 100% !important;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  .auth-card {
+    width: 100% !important;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  .auth-card {
+    width: 100% !important;
+  }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .auth-card {
+    width: 40% !important;
+  }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .auth-card {
+    width: 50% !important;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  .auth-card {
+    width: 40% !important;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  .auth-card {
+    width: 35% !important;
+  }
+}
+</style>
