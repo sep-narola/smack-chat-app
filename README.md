@@ -41,4 +41,4 @@ quasar build
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
 #### Firebase Hosting Guide
-See this [link](https://stackoverflow.com/questions/62760926/deploying-quasar-with-firebase-hosting).
+See this incase of facing any deplyment or hosting related issue on Firebase [link](https://stackoverflow.com/questions/62760926/deploying-quasar-with-firebase-hosting).
