@@ -52,16 +52,13 @@ import { computed, defineComponent, reactive, ref } from "vue";
 import { mapActions, mapState, useStore } from "vuex";
 
 export default defineComponent({
-  // props: {
-  //   tab: { required: true },
-  // },
   props: ["tab"],
   setup(props) {
     const store = useStore();
     const $q = useQuasar();
 
     const state = reactive({
-      form: { name: null, email: "danny@yopmail.com", password: "danny@yopmail.com" },
+      form: { name: null, email: "", password: "" },
       validationMessage: { required: "This field is required!" },
     });
 
