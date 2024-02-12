@@ -132,6 +132,7 @@ export default defineComponent({
 <style lang="scss">
 .page-chat {
   background: #e2dfd5;
+  // background: #ffffff;
   &:after {
     content: "";
     display: block;
