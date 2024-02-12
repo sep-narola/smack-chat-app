@@ -49,7 +49,7 @@ export default {
   computed: {
     ...mapState("app_store", ["userDetails"]),
     title() {
-      console.log(this.$route);
+      // console.log(this.$route);
       let currentPath = this.$route.fullPath;
       // if (currentPath == "/") return "Smackchat";
       if (currentPath.includes("/chat")) return this.otherUserDetails?.name;

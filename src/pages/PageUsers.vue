@@ -10,7 +10,7 @@
       >
         <q-item-section avatar>
           <q-avatar color="primary" text-color="white">
-            {{ user.name.charAt(0) }}
+            {{ user?.name?.charAt(0) }}
           </q-avatar>
         </q-item-section>
 

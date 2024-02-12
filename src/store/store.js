@@ -58,7 +58,7 @@ const actions = {
         payload.password
       )
         .then((response) => {
-          console.log("response =>", response);
+          // console.log("response =>", response);
           let userId = firebaseAuth.currentUser.uid;
           set(ref(firebaseDB, "users/" + userId), {
             name: payload.name,
@@ -79,7 +79,7 @@ const actions = {
     try {
       signInWithEmailAndPassword(firebaseAuth, payload.email, payload.password)
         .then((response) => {
-          console.log("response =>", response);
+          // console.log("response =>", response);
         })
         .catch((error) => {
           throw error;
@@ -92,7 +92,7 @@ const actions = {
   logoutUser() {
     signOut(firebaseAuth)
       .then((response) => {
-        console.log("signOut =>", response);
+        // console.log("signOut =>", response);
       })
       .catch((error) => {
         console.error(error);
@@ -100,7 +100,7 @@ const actions = {
   },
 
   handleAuthStateChanged({ commit, dispatch, state }) {
-    console.log("handleAuthStateChanged");
+    // console.log("handleAuthStateChanged");
     firebaseAuth.onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
@@ -138,7 +138,7 @@ const actions = {
   },
 
   firebaseUpdateUser({}, payload) {
-    console.log("payload =>", payload);
+    // console.log("payload =>", payload);
     if (payload.userId) {
       update(ref(firebaseDB, "users/" + payload.userId), payload.updates);
     }
@@ -167,7 +167,7 @@ const actions = {
   },
 
   firebaseGetMessages({ commit, state }, otheruserId) {
-    console.log("otheruserId =>", otheruserId);
+    // console.log("otheruserId =>", otheruserId);
     let userId = state.userDetails.userId;
     messagesRef = ref(firebaseDB, "chats/" + userId + "/" + otheruserId);
     onChildAdded(messagesRef, (snapshot) => {
@@ -181,14 +181,14 @@ const actions = {
   },
 
   firebaseStopGettingMessages({ commit }) {
-    console.log("firebaseStopGettingMessages");
+    // console.log("firebaseStopGettingMessages");
     // const unsubscribe = onChildAdded(messagesRef, (snapshot) => {});
     // unsubscribe();
     commit("clearMessages");
   },
 
   firebaseSendMessage({}, payload) {
-    console.log("payload => ", payload);
+    // console.log("payload => ", payload);
     push(
       ref(
         firebaseDB,
